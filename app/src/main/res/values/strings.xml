@@ -13,4 +13,12 @@
     <string name="logout">Logout</string>
     <string name="open_drawer">open Drawer</string>
     <string name="close_drawer">close Drawer</string>
+    <string name="sign_in">SIGN IN</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forgot_your_password">Forgot Your Password?</string>
+    <string name="user_name">User Name</string>
+    <string name="phone">Phone</string>
+    <string name="confirm_password">Confirm Password</string>
 </resources>

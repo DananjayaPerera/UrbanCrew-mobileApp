@@ -7,47 +7,45 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-public class SignIn_SignUp extends AppCompatActivity {
+public class SignIn extends AppCompatActivity {
 
-    Button sign_in;
-    Button sign_up;
+    Button register;
+    Button log_in;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_in__sign_up);
+        setContentView(R.layout.activity_sign_in);
 
-        sign_in = (Button)findViewById(R.id.sign_in);
-        sign_up = (Button)findViewById(R.id.sign_up);
+        register = (Button)findViewById(R.id.register);
+        log_in = (Button)findViewById(R.id.log_in);
 
-        sign_in.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                openSignIn();
-
-            }
-        });
-
-        sign_up.setOnClickListener(new OnClickListener() {
+        register.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 openSignUp();
-
             }
         });
-    }
 
-    public void openSignIn() {
+        log_in.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-        Intent intent = new Intent(this,SignIn.class);
-        startActivity(intent);
+                openNavigationDrawer();
+            }
+        });
     }
 
     public void openSignUp() {
 
         Intent intent = new Intent(this,SignUp.class);
+        startActivity(intent);
+    }
+
+    public void openNavigationDrawer() {
+
+        Intent intent = new Intent(this,NavigationDrawer.class);
         startActivity(intent);
     }
 }

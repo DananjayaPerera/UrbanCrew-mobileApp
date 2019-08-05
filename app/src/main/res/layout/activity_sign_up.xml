@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="18dp"
+    android:paddingRight="18dp"
+    tools:context=".SignIn"
+    android:background="@drawable/background9">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="280dp">
+
+
+
+            <EditText
+                android:id="@+id/user_name"
+                android:paddingLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:drawableLeft="@drawable/user"
+                android:drawablePadding="25dp"
+                android:textSize="19sp"
+                android:hint="@string/user_name"
+                android:ems="10"
+                android:background="@drawable/textbox"
+                android:maxLines="1"
+                />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+
+            <EditText
+                android:id="@+id/email"
+                android:paddingLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:ems="10"
+                android:background="@drawable/textbox"
+                android:hint="@string/email"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:textSize="19sp"
+                android:drawableLeft="@drawable/email"
+                android:drawablePadding="20dp"
+                android:maxLines="1"
+                android:layout_marginTop="10dp"
+                />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="25dp"
+                android:inputType="textPassword"
+                android:hint="@string/password"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:drawableLeft="@drawable/lock"
+                android:drawablePadding="25dp"
+                android:ems="10"
+                android:background="@drawable/textbox"
+                android:maxLines="1"
+                android:layout_marginTop="10dp"
+                />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+
+            <EditText
+                android:id="@+id/confirm_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="25dp"
+                android:inputType="textPassword"
+                android:hint="@string/confirm_password"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:drawableLeft="@drawable/lock"
+                android:drawablePadding="25dp"
+                android:ems="10"
+                android:background="@drawable/textbox"
+                android:maxLines="1"
+                android:layout_marginTop="10dp"
+                />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+
+            <EditText
+                android:id="@+id/phone"
+                android:paddingLeft="25dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:hint="@string/phone"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:drawableLeft="@drawable/phone"
+                android:drawablePadding="20dp"
+                android:ems="10"
+                android:background="@drawable/textbox"
+                android:maxLines="1"
+                android:layout_marginTop="15dp"
+                />
+
+            <Button
+                android:id="@+id/sign_up_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button1"
+                android:text="@string/sign_up"
+                android:textStyle="bold"
+                android:textSize="23dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:padding="16dp"
+                android:clickable="true"
+                android:layout_marginTop="30dp"
+                />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

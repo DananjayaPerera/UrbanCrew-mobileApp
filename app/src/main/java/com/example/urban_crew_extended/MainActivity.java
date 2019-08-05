@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                openNavigationDrawer();
+                openSignIn_SignUp();
             }
         });
 
@@ -39,13 +39,14 @@ public class MainActivity extends AppCompatActivity {
         logo.setAnimation(fromtop);
     }
 
-    public void openNavigationDrawer() {
+    public void openSignIn_SignUp() {
 
-        Intent intent = new Intent(this, NavigationDrawer.class);
+        Intent intent = new Intent(this,SignIn_SignUp.class);
         startActivity(intent);
     }
 
     //test comment
+    //test comment 3
 
     //test comment two
 }
