@@ -44,4 +44,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, NavigationDrawer.class);
         startActivity(intent);
     }
+
+    //test comment
 }
