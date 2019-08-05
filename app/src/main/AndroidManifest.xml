@@ -12,7 +12,8 @@
         <activity android:name=".SignUp"></activity>
         <activity android:name=".SignIn" />
         <activity android:name=".SignIn_SignUp" />
-        <activity android:name=".NavigationDrawer" />
+        <activity android:name=".NavigationDrawer"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,6 +1,8 @@
 package com.example.urban_crew_extended;
 
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,7 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-public class NavigationDrawer extends AppCompatActivity {
+public class NavigationDrawer extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     Toolbar toolbar;
     DrawerLayout drawerLayout;
@@ -27,6 +29,7 @@ public class NavigationDrawer extends AppCompatActivity {
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) findViewById(R.id.navigation_view);
+        navigationView.setNavigationItemSelectedListener(this);
 
         ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,
                 R.string.open_drawer,R.string.close_drawer);
@@ -71,5 +74,25 @@ public class NavigationDrawer extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+        drawerLayout.closeDrawer(GravityCompat.START);
+        return false;
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }else {
+
+            super.onBackPressed();
+        }
+
     }
 }
