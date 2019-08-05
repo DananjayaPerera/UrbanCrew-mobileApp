@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item android:title="@string/view_cars"
+           android:id="@+id/view_cars_id"
+            android:icon="@drawable/view">
+
+        </item>
+
+        <item android:title="@string/search_cars"
+            android:id="@+id/search_cars_id"
+            android:icon="@drawable/search">
+
+        </item>
+
+        <item android:title="@string/book_cars"
+            android:id="@+id/book_cars_id"
+            android:icon="@drawable/book">
+
+        </item>
+
+        <item android:title="@string/profile"
+            android:id="@+id/profile_id"
+            android:icon="@drawable/profile">
+
+        </item>
+
+        <item android:title="@string/about_us"
+            android:id="@+id/about_us_id"
+            android:icon="@drawable/about">
+
+        </item>
+
+        <item android:title="@string/logout"
+            android:id="@+id/Logout_id"
+            android:icon="@drawable/signout">
+
+        </item>
+
+    </group>
+
+</menu>

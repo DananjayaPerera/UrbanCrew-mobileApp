@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Urban_Crew_Extended</string>
+    <string name="start">GET STARTED</string>
+    <string name="settings_id">Settings</string>
+    <string name="users_id">Users</string>
+    <string name="anfisa_nesrin">Anfisa Nesrin</string>
+    <string name="anfisanesrin_gmail_com">anfisanesrin@gmail.com</string>
+    <string name="view_cars">View Cars</string>
+    <string name="search_cars">Search Cars</string>
+    <string name="book_cars">Book Cars</string>
+    <string name="profile">Profile</string>
+    <string name="about_us">About Us</string>
+    <string name="logout">Logout</string>
+    <string name="open_drawer">open Drawer</string>
+    <string name="close_drawer">close Drawer</string>
+</resources>
