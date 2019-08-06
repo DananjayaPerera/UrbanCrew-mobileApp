@@ -1,5 +1,6 @@
 package com.example.urban_crew_extended;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -78,6 +79,19 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+        int id = menuItem.getItemId();
+
+        if (id == R.id.view_cars_id){
+
+            startActivity(new Intent(NavigationDrawer.this,PaymentCard.class));
+        }
+
+        else if (id == R.id.profile_id){
+
+            startActivity(new Intent(NavigationDrawer.this,Profile.class));
+
+        }
 
         drawerLayout.closeDrawer(GravityCompat.START);
         return false;
