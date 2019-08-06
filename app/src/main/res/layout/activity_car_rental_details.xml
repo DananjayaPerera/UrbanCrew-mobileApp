@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CarRentalDetailsActivity"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="@color/cardview_dark_background">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/car_rental"
+        android:layout_marginTop="30dp"
+        android:textSize="@android:dimen/app_icon_size"
+        android:textColor="@android:color/holo_orange_light"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/location"
+        android:drawableLeft="@drawable/ic_location"
+        android:textSize="20dp"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/location_hint"
+        android:textColorHint="@android:color/black"
+        android:background="@android:color/white"/>
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/select_date"
+        android:id="@+id/tvDate"
+        android:layout_marginTop="30dp"
+        android:drawableLeft="@drawable/ic_calender"
+        android:drawablePadding="10dp"
+        android:textColorHint="@android:color/black"
+        android:background="@android:color/white"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/location_drop"
+        android:drawableLeft="@drawable/ic_location"
+        android:textSize="20dp"
+        android:textColor="@android:color/white"/>
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/location_hint"
+        android:textColorHint="@android:color/black"
+        android:background="@android:color/white"/>
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/select_date"
+        android:id="@+id/tv1Date"
+        android:layout_marginTop="30dp"
+        android:drawableLeft="@drawable/ic_calender"
+        android:drawablePadding="10dp"
+        android:textColorHint="@android:color/black"
+        android:background="@android:color/white"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/continue_button"
+        android:textColor="@android:color/white"
+        android:drawableRight="@drawable/ic_arrow"
+        android:background="@drawable/button2"/>
+</LinearLayout>

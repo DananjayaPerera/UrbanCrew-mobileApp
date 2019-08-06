@@ -27,4 +27,27 @@
         <item>Datsun GO+</item>
         <item>Maruti Suzuki Wagon R</item>
     </string-array>
+    <string name="SwiftName">Maruti Suzuki Swift</string>
+    <string name="selectCar">SELECT</string>
+    <string name="CiazName">Maruti Suzuki Ciaz</string>
+    <string name="datsunName">Datsun GO+</string>
+    <string name="wagonRName">Maruti Suzuki Wagon R</string>
+    <string name="car_rental">CAR RENTAL</string>
+    <string name="location">Pick-Up-Location</string>
+    <string name="location_hint">--Enter Location--</string>
+    <string name="select_date">Select Date</string>
+    <string name="location_drop">Drp-Off-Location</string>
+    <string name="continue_button">CONTINUE</string>
+    <string name="selected_location">Lorem</string>
+    <string name="selected_date">01/02/2019</string>
+    <string name="confirm_button">CONFIRM</string>
+    <string name="selected_car">Selected Car</string>
+    <string name="customer_details">Customer Details</string>
+    <string name="existing_customer">Existing Customer?</string>
+    <string name="email_address">Email Address</string>
+    <string name="fetch_details">FETCH DETAILS</string>
+    <string name="full_name">Full Name</string>
+    <string name="address">Address</string>
+    <string name="city">City</string>
+    <string name="telephone">Phone Number</string>
 </resources>
