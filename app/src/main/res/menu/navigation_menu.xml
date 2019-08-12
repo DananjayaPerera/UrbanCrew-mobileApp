@@ -11,7 +11,7 @@
 
         <item android:title="@string/search_cars"
             android:id="@+id/search_cars_id"
-            android:icon="@drawable/search">
+            android:icon="@drawable/search1">
 
         </item>
 

@@ -5,8 +5,9 @@
     <item android:title="@string/settings_id"
         android:id="@+id/settings_id" />
 
-    <item android:title="@string/users_id"
+    <item android:title="@string/users"
         android:id="@+id/users_id"/>
+
 
     <item android:title=""
         android:id="@+id/search_id"

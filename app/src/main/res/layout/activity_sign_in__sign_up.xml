@@ -26,13 +26,15 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:elevation="8dp"
                 android:background="@drawable/google"
-                android:layout_marginTop="190dp"
+                android:layout_marginTop="100dp"
                 />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:elevation="8dp"
                 android:background="@drawable/facebook"
                 android:layout_marginTop="20dp"
                 />
@@ -54,6 +56,7 @@
                     android:layout_height="wrap_content"
                     android:padding="18dp"
                     android:text="@string/sign_in"
+                    android:elevation="8dp"
                     android:textColor="@color/colorPrimaryDark"
                     android:textStyle="bold"
                     android:textSize="23sp"
@@ -72,11 +75,12 @@
                     android:id="@+id/sign_up"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:elevation="8dp"
                     android:text="@string/sign_up"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="23sp"
                     android:textStyle="bold"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="24px"
                     android:layout_weight="4"
                     android:clickable="true"
                     android:padding="18dp"

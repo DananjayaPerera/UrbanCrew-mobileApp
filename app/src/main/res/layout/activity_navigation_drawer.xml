@@ -5,16 +5,65 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".NavigationDrawer"
-    android:background="@drawable/background7">
+    android:background="@drawable/background10">
 
-    
+
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+        android:elevation="4dp"
         android:id="@+id/toolbar"
         android:background="@color/colorPrimary"
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
     </android.support.v7.widget.Toolbar>
+
+
+    <com.synnapps.carouselview.CarouselView
+        android:layout_below="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        app:pageColor="#0000"
+        app:fillColor="#FFFF"
+        app:slideInterval="3000"
+        app:radius="6dp"
+        app:strokeColor="#FF777777"
+        app:strokeWidth="1dp"
+        android:id="@+id/carousel"/>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_below="@id/carousel"
+        android:id="@+id/trend"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="Trending Picks"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:textColor="@color/textColor"
+        />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:foregroundGravity="center"
+        android:layout_below="@+id/trend"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:layout_centerInParent="true"
+        android:overScrollMode="never"
+        android:clipToPadding="false">
+
+    </android.support.v4.view.ViewPager>
+    
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_float"
+        android:layout_margin="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/voice"/>
+
 
 </RelativeLayout>
