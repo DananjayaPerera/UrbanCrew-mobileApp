@@ -279,4 +279,6 @@ public class BookNowAltoK10 extends AppCompatActivity{
         BookingProfile bookingProfile = new BookingProfile(YourLocation,PickUpLocation,Date,Time);
         myref.setValue(bookingProfile);
     }
+
+    //gone
 }
