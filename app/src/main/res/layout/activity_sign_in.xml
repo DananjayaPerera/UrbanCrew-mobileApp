@@ -5,66 +5,48 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingLeft="18dp"
-    android:paddingRight="18dp"
+    android:padding="40dp"
     tools:context=".SignIn"
-    android:background="@drawable/background9">
+    android:background="@drawable/background20">
 
-    <ScrollView
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/email_login_1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:textColorHint="@color/cardColor">
 
-        <LinearLayout
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_marginTop="300dp">
+            android:layout_height="wrap_content"
+            android:hint="@string/email"
+            android:textSize="19sp"
+            android:inputType="textEmailAddress"/>
 
+    </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
-                android:id="@+id/email"
-                android:paddingLeft="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                android:ems="10"
-                android:background="@drawable/textbox"
-                android:drawablePadding="20dp"
-                android:textColorHint="@color/colorPrimaryDark"
-                android:textSize="19sp"
-                android:drawableLeft="@drawable/email"
-                android:hint="@string/email"
-                android:maxLines="1"
-                android:layout_marginTop="10dp"
-                />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/password_login_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/cardColor"
+        app:passwordToggleEnabled="true">
 
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/password"
+            android:textSize="19sp"
+            android:inputType="textPassword"/>
 
-            <EditText
-                android:paddingLeft="25dp"
-                android:id="@+id/password"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:drawableLeft="@drawable/lock"
-                android:textColorHint="@color/colorPrimaryDark"
-                android:textSize="19sp"
-                android:drawablePadding="25dp"
-                android:hint="@string/password"
-                android:ems="10"
-                android:background="@drawable/textbox"
-                android:maxLines="1"
-                android:layout_marginTop="10dp"
-                />
+    </com.google.android.material.textfield.TextInputLayout>
 
             <Button
-                android:id="@+id/log_in"
+                android:id="@+id/login_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button1"
+                android:elevation="8dp"
                 android:text="@string/sign_in"
                 android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold"
@@ -75,11 +57,12 @@
                 />
 
             <Button
-                android:id="@+id/register"
+                android:id="@+id/register_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button1"
-                android:text="Register"
+                android:text="@string/register"
+                android:elevation="8dp"
                 android:textSize="23sp"
                 android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold"
@@ -89,18 +72,14 @@
                 />
 
             <TextView
+                android:id="@+id/sign_in_password_reset"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/forgot_your_password"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 android:layout_gravity="center"
-                android:textColor="#A8B9E1"
-                android:padding="16dp"
+                android:textColor="@color/cardColor"
                 android:clickable="true"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="10dp"/>
-
-        </LinearLayout>
-    </ScrollView>
+                android:layout_marginTop="40dp"/>
 
 </LinearLayout>

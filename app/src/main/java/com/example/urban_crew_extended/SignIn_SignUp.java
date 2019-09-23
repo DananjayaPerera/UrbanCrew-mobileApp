@@ -1,7 +1,7 @@
 package com.example.urban_crew_extended;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -18,7 +18,7 @@ public class SignIn_SignUp extends AppCompatActivity {
         setContentView(R.layout.activity_sign_in__sign_up);
 
         sign_in = (Button)findViewById(R.id.sign_in);
-        sign_up = (Button)findViewById(R.id.sign_up);
+        sign_up = (Button)findViewById(R.id.sign_up_1);
 
         sign_in.setOnClickListener(new OnClickListener() {
             @Override

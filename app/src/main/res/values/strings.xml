@@ -2,12 +2,10 @@
     <string name="app_name">Urban_Crew_Extended</string>
     <string name="start">GET STARTED</string>
     <string name="settings_id">Settings</string>
-    <string name="users_id">Users</string>
     <string name="anfisa_nesrin">Anfisa Nesrin</string>
     <string name="anfisanesrin_gmail_com">anfisanesrin@gmail.com</string>
     <string name="view_cars">View Cars</string>
     <string name="search_cars">Search Cars</string>
-    <string name="book_cars">Book Cars</string>
     <string name="profile">Profile</string>
     <string name="about_us">About Us</string>
     <string name="logout">Logout</string>
@@ -21,4 +19,55 @@
     <string name="user_name">User Name</string>
     <string name="phone">Phone</string>
     <string name="confirm_password">Confirm Password</string>
+    <string name="users">Users</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="altok10">AltoK10</string>
+    <string name="maruti_suzuki">Maruti Suzuki</string>
+    <string name="swift">Swift</string>
+    <string name="celeriox">CelerioX</string>
+    <string name="wagon_r">Wagon R</string>
+    <string name="mazda">Mazda</string>
+    <string name="toyota">Toyota</string>
+    <string name="avalon">Avalon</string>
+    <string name="audi">Audi</string>
+    <string name="a7">A7</string>
+    <string name="bmw">BMW</string>
+    <string name="m760li">M760Li</string>
+    <string name="cr_v">CR-V</string>
+    <string name="honda">Honda</string>
+    <string name="_6">6</string>
+    <string name="nissan">Nissan</string>
+    <string name="x_trail">X-Trail</string>
+    <string name="land_cruiser_v8">Land Cruiser V8</string>
+    <string name="range_rover">Range Rover</string>
+    <string name="evoque">Evoque</string>
+    <string name="address">Address</string>
+    <string name="book_now">Book Now</string>
+    <string name="car_features">Car Features</string>
+    <string name="mileage">Mileage</string>
+    <string name="fuel_type">Fuel Type</string>
+    <string name="engine">Engine</string>
+    <string name="number_of_seats">Number of Seats</string>
+    <string name="fuel_economy">Fuel Economy</string>
+    <string name="air_condition">Air Condition</string>
+    <string name="booking_price">Booking price</string>
+    <string name="hourly_price">Hourly price</string>
+    <string name="daily_price">Daily Price</string>
+    <string name="enter_location">Enter Location</string>
+
+    <!-- Spinner Items -->
+    <string name="app_name_1">Spinner</string>
+    <string name="select_booking_type">Select Booking Type</string>
+    <string name="customer_details">Customer Details</string>
+    <string name="select_payment">Select Payment</string>
+    <string name="pickup_location">Pickup Location</string>
+    <string name="select_date">Select Date</string>
+    <string name="enter_date">Enter Date</string>
+    <string name="hourly_booking">Hourly Booking</string>
+    <string name="my_trips">My Trips</string>
+    <string name="register">Register</string>
+    <string name="reset_password">Reset Password</string>
+
 </resources>

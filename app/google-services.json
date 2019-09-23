@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "611396625068",
+    "firebase_url": "https://urban-crew-extended.firebaseio.com",
+    "project_id": "urban-crew-extended",
+    "storage_bucket": "urban-crew-extended.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:611396625068:android:4ae3c360019b12f4",
+        "android_client_info": {
+          "package_name": "com.example.urban_crew_extended"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "611396625068-vuk7knja9mql5d7q4lqe0bds8h2qiq0e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.urban_crew_extended",
+            "certificate_hash": "542d13c4b0efe58854e52c03d2fd9af5da6e6b1c"
+          }
+        },
+        {
+          "client_id": "611396625068-ur5jl0g4l8hribvjm0ebqpq2hd476afe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJc6a9r-Aof2z_czQinlqc-qcGN_w8ec0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "611396625068-ur5jl0g4l8hribvjm0ebqpq2hd476afe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

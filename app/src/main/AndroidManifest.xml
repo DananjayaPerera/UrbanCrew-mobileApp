@@ -9,10 +9,93 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SignUp"></activity>
+        <activity android:name=".PasswordReset"></activity>
+        <activity
+            android:name=".BookNowEvoque"
+            android:parentActivityName=".Evoque" />
+        <activity
+            android:name=".BookNowV8"
+            android:parentActivityName=".V8" />
+        <activity
+            android:name=".BookNowXTrail"
+            android:parentActivityName=".X_Trail" />
+        <activity
+            android:name=".BookNowCR_V"
+            android:parentActivityName=".CR_V" />
+        <activity
+            android:name=".BookNowM760Li"
+            android:parentActivityName=".M760Li" />
+        <activity
+            android:name=".BookNowA7"
+            android:parentActivityName=".A7" />
+        <activity
+            android:name=".BookNowAvalon"
+            android:parentActivityName=".Avalon" />
+        <activity
+            android:name=".BookNowMazda6"
+            android:parentActivityName=".Mazda6" />
+        <activity
+            android:name=".BookNowWagonR"
+            android:parentActivityName=".WagonR" />
+        <activity
+            android:name=".BookNowCelerioX"
+            android:parentActivityName=".CelerioX" />
+        <activity
+            android:name=".BookNowSwift"
+            android:parentActivityName=".Swift" />
+        <activity
+            android:name=".BookNowAltoK10"
+            android:parentActivityName=".AltoK10" />
+        <activity android:name=".Success" />
+        <activity
+            android:name=".Evoque"
+            android:parentActivityName=".ViewCars" />
+        <activity
+            android:name=".V8"
+            android:parentActivityName=".ViewCars" />
+        <activity
+            android:name=".X_Trail"
+            android:parentActivityName=".ViewCars" />
+        <activity
+            android:name=".CR_V"
+            android:parentActivityName=".ViewCars" />
+        <activity
+            android:name=".M760Li"
+            android:parentActivityName=".ViewCars" />
+        <activity
+            android:name=".A7"
+            android:parentActivityName=".ViewCars" />
+        <activity
+            android:name=".Avalon"
+            android:parentActivityName=".ViewCars" />
+        <activity
+            android:name=".Mazda6"
+            android:parentActivityName=".ViewCars" />
+        <activity
+            android:name=".WagonR"
+            android:parentActivityName=".ViewCars" />
+        <activity
+            android:name=".Swift"
+            android:parentActivityName=".ViewCars" />
+        <activity
+            android:name=".AltoK10"
+            android:parentActivityName=".ViewCars" />
+        <activity
+            android:name=".CelerioX"
+            android:parentActivityName=".ViewCars" />
+        <activity
+            android:name=".ViewCars"
+            android:parentActivityName=".NavigationDrawer" />
+        <activity
+            android:name=".Profile"
+            android:parentActivityName=".NavigationDrawer" />
+        <activity android:name=".PaymentSelection" />
+        <activity android:name=".PaymentCard" />
+        <activity android:name=".SignUp" />
         <activity android:name=".SignIn" />
         <activity android:name=".SignIn_SignUp" />
-        <activity android:name=".NavigationDrawer"
+        <activity
+            android:name=".NavigationDrawer"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MainActivity">
             <intent-filter>

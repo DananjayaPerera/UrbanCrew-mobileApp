@@ -11,13 +11,13 @@
 
         <item android:title="@string/search_cars"
             android:id="@+id/search_cars_id"
-            android:icon="@drawable/search">
+            android:icon="@drawable/search1">
 
         </item>
 
-        <item android:title="@string/book_cars"
-            android:id="@+id/book_cars_id"
-            android:icon="@drawable/book">
+        <item android:title="@string/my_trips"
+            android:id="@+id/my_trips_id"
+            android:icon="@drawable/trips">
 
         </item>
 
