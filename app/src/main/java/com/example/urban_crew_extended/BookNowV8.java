@@ -48,7 +48,7 @@ public class BookNowV8 extends AppCompatActivity implements OnItemSelectedListen
             }
         });
 
-        spinner = findViewById(R.id.spinner);
+        spinner = findViewById(R.id.spinner_alto);
         customlist = getCustomList();
         CustomAdapter adapter = new CustomAdapter(this,customlist);
         if (spinner != null) {
@@ -57,7 +57,7 @@ public class BookNowV8 extends AppCompatActivity implements OnItemSelectedListen
         }
 
 
-        editText = findViewById(R.id.datePicker);
+        editText = findViewById(R.id.datePicker_alto);
         final Calendar calendar = Calendar.getInstance();
         editText.setOnClickListener(new OnClickListener() {
             @Override

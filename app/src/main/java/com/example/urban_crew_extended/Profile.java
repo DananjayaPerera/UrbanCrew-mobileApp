@@ -14,6 +14,7 @@ import android.provider.MediaStore;
 import android.provider.MediaStore.Images.Media;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -22,14 +23,29 @@ import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FileDownloadTask;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.google.firebase.storage.UploadTask.TaskSnapshot;
+import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
+import com.theartofdev.edmodo.cropper.CropImageView;
+import com.theartofdev.edmodo.cropper.CropImageView.Guidelines;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -37,10 +53,14 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class Profile extends AppCompatActivity {
 
     private CircleImageView profilePic;
-    Uri imageUri;
     private TextView profile_userName, profile_userEmail, profile_userPhone;
     private FirebaseAuth firebaseAuth;
+    Uri imageUri;
     private FirebaseDatabase firebaseDatabase;
+    private FirebaseStorage firebaseStorage;
+    private String currentUser;
+    private StorageReference storageReference;
+    private static final int GalleryPick = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +72,7 @@ public class Profile extends AppCompatActivity {
         getSupportActionBar().setTitle("");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
         profilePic = findViewById(R.id.profile_pic);
         profile_userName =  findViewById(R.id.profile_username_1);
         profile_userEmail = findViewById(R.id.profile_email_1);
@@ -59,9 +80,13 @@ public class Profile extends AppCompatActivity {
 
 
         firebaseAuth = FirebaseAuth.getInstance();
+        currentUser = firebaseAuth.getCurrentUser().getUid();
         firebaseDatabase = FirebaseDatabase.getInstance();
+        storageReference = FirebaseStorage.getInstance().getReference().child("Profile Image");
 
-        final DatabaseReference databaseReference = firebaseDatabase.getReference(firebaseAuth.getUid());
+
+
+        final DatabaseReference databaseReference = firebaseDatabase.getReference(firebaseAuth.getUid()).child("User Info");
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -83,18 +108,30 @@ public class Profile extends AppCompatActivity {
 
             }
         });
-    }
 
+        profilePic.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-    public void onChooseFile(View v){
+                Intent galleryIntent = new Intent();
+                galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
+                galleryIntent.setType("image/*");
+                startActivityForResult(galleryIntent, GalleryPick);
+            }
+        });
 
-        CropImage.activity().start(Profile.this);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-
         super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == GalleryPick && resultCode == RESULT_OK && data != null){
+
+            Uri imageUri = data.getData();
+
+            CropImage.activity().setGuidelines(Guidelines.ON).setAspectRatio(1,1).start(Profile.this);
+        }
 
         if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE){
 
@@ -102,16 +139,96 @@ public class Profile extends AppCompatActivity {
 
             if (resultCode == RESULT_OK){
 
-                imageUri = result.getUri();
-                profilePic.setImageURI(imageUri);
-            }
+                final Uri resultUri = result.getUri();
 
-            else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE){
+                final StorageReference filePath = storageReference.child(currentUser + ".jpg");
 
-                Exception e = result.getError();
-                Toast.makeText(Profile.this, "Error :"+e, Toast.LENGTH_SHORT).show();
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+
+                byte[] data1 = baos.toByteArray();
+
+                UploadTask uploadTask = storageReference.putBytes(data1);
+
+                uploadTask = filePath.putFile(resultUri);
+
+                Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<TaskSnapshot, Task<Uri>>() {
+                    @Override
+                    public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                        if (!task.isSuccessful()) {
+                            throw task.getException();
+                        }
+
+                        // Continue with the task to get the download URL
+                        return filePath.getDownloadUrl();
+
+                    }
+                }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Uri> task) {
+
+                        if (task.isSuccessful()) {
+
+                            Picasso.get().load(resultUri).into(profilePic);
+                            Toast.makeText(Profile.this, "Profile Image Uploaded Successfully", Toast.LENGTH_SHORT).show();
+
+                        } else {
+
+                            // Handle failures
+                            // ...
+                        }
+                    }
+                });
+
+                /*filePath.putFile(resultUri).addOnCompleteListener(new OnCompleteListener<TaskSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<TaskSnapshot> task) {
+
+
+                        if (task.isSuccessful()){
+
+                            Toast.makeText(Profile.this, "Profile Image Uploaded Successfully", Toast.LENGTH_SHORT).show();
+
+
+                        } else {
+
+                            String message = task.getException().toString();
+                            Toast.makeText(Profile.this, "Error :" +message, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });*/
+
             }
         }
     }
+
+    /*public void onChooseFile(View v){
+
+        CropImage.activity().start(Profile.this);
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+
+            CropImage.ActivityResult result = CropImage.getActivityResult(data);
+
+            if (resultCode == RESULT_OK) {
+
+                imageUri = result.getUri();
+                profilePic.setImageURI(imageUri);
+
+                StorageReference myRef = storageReference.child(firebaseAuth.getUid()).child("Profile Image");
+
+                Toast.makeText(Profile.this, "Image uploaded successfully", Toast.LENGTH_SHORT).show();
+
+            }
+
+        }
+    }*/
+
 
 }
