@@ -29,7 +29,6 @@ import com.google.firebase.database.ValueEventListener;
 public class SignIn extends AppCompatActivity {
 
     private TextInputLayout userEmail, userPassword;
-    Button register;
     Button log_in;
     private FirebaseAuth firebaseAuth;
     private ProgressDialog progressDialog;
@@ -51,16 +50,9 @@ public class SignIn extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
 
 
-        register = (Button)findViewById(R.id.register_1);
+
         log_in = (Button)findViewById(R.id.login_1);
 
-        register.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                startActivity(new Intent(SignIn.this, SignUp.class));
-            }
-        });
 
         log_in.setOnClickListener(new OnClickListener() {
             @Override

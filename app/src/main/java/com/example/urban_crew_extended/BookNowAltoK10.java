@@ -1,11 +1,12 @@
 package com.example.urban_crew_extended;
 
-import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.DatePickerDialog.OnDateSetListener;
+import android.app.TimePickerDialog;
+import android.app.TimePickerDialog.OnTimeSetListener;
 import android.content.Intent;
 
-import androidx.annotation.Nullable;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;
@@ -18,26 +19,40 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.TimePicker;
+import android.widget.Toast;
 
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class BookNowAltoK10 extends AppCompatActivity implements OnItemSelectedListener {
+public class BookNowAltoK10 extends AppCompatActivity{
 
     Button button_1;
-    Spinner spinner;
-    ArrayList<CustomSpinnerItems>customlist;
-    EditText editText;
+    EditText userLocation_1,userpickupLocation,editText_date, editText_time;
+    TextView user,email,phone;
     int year, month, day;
-    String DMY;
+    String DMY,YourLocation,PickUpLocation,Date,Time;
     DatePickerDialog datePickerDialog;
+    TimePickerDialog timePickerDialog;
+    Calendar calendar_1;
+    int currentHour;
+    int currentMinute;
+    String amPm;
+    FirebaseAuth firebaseAuth;
+    FirebaseDatabase firebaseDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_now_alto_k10);
-
 
 
         Toolbar toolbar = findViewById(R.id.toolbar_bookNowAlto);
@@ -50,22 +65,27 @@ public class BookNowAltoK10 extends AppCompatActivity implements OnItemSelectedL
             @Override
             public void onClick(View v) {
 
-                openSuccess();
+                YourLocation = userLocation_1.getText().toString();
+                PickUpLocation = userpickupLocation.getText().toString();
+                Date = editText_date.getText().toString();
+                Time = editText_time.getText().toString();
+
+                if (YourLocation.isEmpty() | PickUpLocation.isEmpty() | Date.isEmpty() | Time.isEmpty()){
+
+                    Toast.makeText(BookNowAltoK10.this, "Field's can't be empty", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                SendInput();
+                Intent intent = new Intent(BookNowAltoK10.this, PaymentSelection.class);
+                startActivity(intent);
             }
         });
 
-        spinner = findViewById(R.id.spinner);
-        customlist = getCustomList();
-        CustomAdapter adapter = new CustomAdapter(this,customlist);
-        if (spinner != null) {
-            spinner.setAdapter(adapter);
-            spinner.setOnItemSelectedListener(this);
-        }
 
-
-        editText = findViewById(R.id.datePicker);
+        editText_date = findViewById(R.id.datePicker_alto);
         final Calendar calendar = Calendar.getInstance();
-        editText.setOnClickListener(new OnClickListener() {
+        editText_date.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -78,7 +98,8 @@ public class BookNowAltoK10 extends AppCompatActivity implements OnItemSelectedL
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
 
                         DMY = dayOfMonth+"/"+(month+1)+"/"+year;
-                        editText.setText(DMY);
+                        editText_date.setText(DMY);
+
                     }
                 },year, month, day);
 
@@ -86,36 +107,79 @@ public class BookNowAltoK10 extends AppCompatActivity implements OnItemSelectedL
 
                     }
                 });
+
+        editText_time = findViewById(R.id.timePicker_alto);
+        editText_time.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                calendar_1 = Calendar.getInstance();
+                currentHour = calendar_1.get(Calendar.HOUR_OF_DAY);
+                currentMinute = calendar_1.get(Calendar.MINUTE);
+
+                timePickerDialog = new TimePickerDialog(BookNowAltoK10.this, new OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+
+                        if (hourOfDay >= 12){
+
+                            amPm = "PM";
+                        } else {
+
+                            amPm = "AM";
+                        }
+
+                        editText_time.setText(String.format("%02d:%02d", hourOfDay, minute) + amPm);
+
+                    }
+                },currentHour,currentMinute,false);
+
+                timePickerDialog.show();
+            }
+        });
+
+        userLocation_1 = findViewById(R.id.alto_your_location);
+        userpickupLocation = findViewById(R.id.alto_pickup_location);
+        user = findViewById(R.id.username_bookAlto);
+        email = findViewById(R.id.email_bookAlto);
+        phone = findViewById(R.id.phone_bookAlto);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+
+        DatabaseReference databaseReference = firebaseDatabase.getReference(firebaseAuth.getUid()).child("User Info");
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                String UserName = dataSnapshot.child("UserName").getValue().toString();
+                String UserEmail = dataSnapshot.child("UserEmail").getValue().toString();
+                String UserPhone = dataSnapshot.child(("UserPhone")).getValue().toString();
+                user.setText(UserName);
+                email.setText(UserEmail);
+                phone.setText(UserPhone);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                Toast.makeText(BookNowAltoK10.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
 
+    public void SendInput(){
 
+        YourLocation = userLocation_1.getText().toString();
+        PickUpLocation = userpickupLocation.getText().toString();
+        Date = editText_date.getText().toString();
+        Time = editText_time.getText().toString();
 
-    private ArrayList<CustomSpinnerItems> getCustomList() {
-
-        customlist = new ArrayList<>();
-        customlist.add(new CustomSpinnerItems("Hourly Booking"));
-        customlist.add(new CustomSpinnerItems("Daily Booking"));
-        return customlist;
-    }
-
-
-
-    public void openSuccess(){
-
-        Intent intent = new Intent(this,Success.class);
-        startActivity(intent);
-    }
-
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-
-        CustomSpinnerItems items = (CustomSpinnerItems)parent.getSelectedItem();
-
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
+        DatabaseReference myref = firebaseDatabase.getReference(firebaseAuth.getUid()).child("AltoK10")
+                .child("Booking Information");
+        BookingProfile bookingProfile = new BookingProfile(YourLocation,PickUpLocation,Date,Time);
+        myref.setValue(bookingProfile);
     }
 }

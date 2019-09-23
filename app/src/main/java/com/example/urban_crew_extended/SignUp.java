@@ -9,6 +9,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
@@ -36,8 +37,10 @@ public class SignUp extends AppCompatActivity {
                     "$");
 
     private TextInputLayout userName, userEmail, userPassword, userConfirmPassword, userPhone;
+    private TextView textView_1;
     Button sign_up_1;
     private FirebaseAuth firebaseAuth;
+    private FirebaseDatabase firebaseDatabase;
     String user_name, user_email, user_password, user_phone;
 
     @Override
@@ -46,12 +49,23 @@ public class SignUp extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
 
         firebaseAuth = FirebaseAuth.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
 
         userName = findViewById(R.id.user_name_signup_1);
         userEmail = findViewById(R.id.email_signup_1);
         userPassword = findViewById(R.id.password_signup_1);
         userConfirmPassword = findViewById(R.id.confirm_password_signup_1);
         userPhone = findViewById(R.id.phone_signup_1);
+        textView_1 = findViewById(R.id.have_account);
+
+        textView_1.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(SignUp.this, SignIn.class);
+                startActivity(intent);
+            }
+        });
 
 
         sign_up_1 = (Button) findViewById(R.id.sign_up_1);
@@ -207,21 +221,15 @@ public class SignUp extends AppCompatActivity {
                 } else {
 
                     Toast.makeText(SignUp.this,"Sign Up Failed",Toast.LENGTH_LONG).show();
-
                 }
-
             }
         });
-
     }
 
     private void sendUserData(){
 
-        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = firebaseDatabase.getReference(firebaseAuth.getUid());
+        DatabaseReference myRef = firebaseDatabase.getReference(firebaseAuth.getUid()).child("User Info");
         UserProfile userProfile = new UserProfile(user_name, user_email, user_phone);
         myRef.setValue(userProfile);
-
     }
-
 }

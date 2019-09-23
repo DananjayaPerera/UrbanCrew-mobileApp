@@ -77,7 +77,7 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
 
-        DatabaseReference databaseReference = firebaseDatabase.getReference(firebaseAuth.getUid());
+        DatabaseReference databaseReference = firebaseDatabase.getReference(firebaseAuth.getUid()).child("User Info");
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -205,6 +205,11 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
         else if (id == R.id.search_cars_id){
 
             startActivity(new Intent(NavigationDrawer.this, Search.class));
+        }
+
+        else if (id == R.id.my_trips_id){
+
+            startActivity(new Intent(NavigationDrawer.this,MyTrips.class));
         }
 
         else if (id == R.id.profile_id){

@@ -12,5 +12,6 @@ public class UserProfile {
         UserName = userName;
         UserEmail = userEmail;
         UserPhone = userPhone;
+
     }
 }
