@@ -1,8 +1,13 @@
 package com.example.urban_crew_extended;
 
 import android.content.Context;
+<<<<<<< HEAD
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
+=======
+import android.support.annotation.NonNull;
+import android.support.v4.view.PagerAdapter;
+>>>>>>> origin/master
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

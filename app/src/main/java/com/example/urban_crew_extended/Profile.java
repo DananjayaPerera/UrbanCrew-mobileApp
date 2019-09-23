@@ -1,5 +1,6 @@
 package com.example.urban_crew_extended;
 
+<<<<<<< HEAD
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,10 +25,18 @@ public class Profile extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
 
+=======
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+
+public class Profile extends AppCompatActivity {
+
+>>>>>>> origin/master
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+<<<<<<< HEAD
 
         Toolbar toolbar = findViewById(R.id.toolbar_profile);
         setSupportActionBar(toolbar);
@@ -64,5 +73,7 @@ public class Profile extends AppCompatActivity {
 
             }
         });
+=======
+>>>>>>> origin/master
     }
 }

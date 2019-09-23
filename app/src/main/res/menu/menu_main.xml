@@ -5,6 +5,17 @@
     <item android:title="@string/settings_id"
         android:id="@+id/settings_id" />
 
+<<<<<<< HEAD
+=======
+    <item android:title="@string/users"
+        android:id="@+id/users_id"/>
+
+
+    <item android:title=""
+        android:id="@+id/search_id"
+        android:icon="@drawable/search"
+        app:showAsAction="ifRoom"/>
+>>>>>>> origin/master
 
     <item android:title=""
         android:id="@+id/delete_id"

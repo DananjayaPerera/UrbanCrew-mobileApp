@@ -7,7 +7,11 @@
     tools:context=".ViewCars"
     android:orientation="vertical">
 
+<<<<<<< HEAD
     <androidx.appcompat.widget.Toolbar
+=======
+    <android.support.v7.widget.Toolbar
+>>>>>>> origin/master
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:elevation="4dp"
@@ -16,7 +20,11 @@
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
 
+<<<<<<< HEAD
     <com.google.android.material.tabs.TabLayout
+=======
+    <android.support.design.widget.TabLayout
+>>>>>>> origin/master
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/tablayout"
@@ -24,14 +32,24 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
+<<<<<<< HEAD
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager.widget.ViewPager
+=======
+    </android.support.design.widget.TabLayout>
+
+    <android.support.v4.view.ViewPager
+>>>>>>> origin/master
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:id="@+id/pager">
 
 
+<<<<<<< HEAD
     </androidx.viewpager.widget.ViewPager>
+=======
+    </android.support.v4.view.ViewPager>
+>>>>>>> origin/master
 
 </LinearLayout>

@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+=======
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+>>>>>>> origin/master
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Profile"
+<<<<<<< HEAD
     android:orientation="vertical"
     android:background="@drawable/background24">
 
@@ -186,3 +191,69 @@
 
     
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
+=======
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp">
+        
+        <LinearLayout
+            android:background="@drawable/header"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:orientation="vertical">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_gravity="center_horizontal"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="80dp"
+                android:src="@drawable/girl"
+                android:scaleType="centerCrop"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/anfisa_nesrin"
+                android:textColor="@color/textColor"
+                android:textStyle="bold"
+                android:textSize="21sp"
+                />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+   <LinearLayout
+       android:orientation="horizontal"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+       
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           >
+
+           <ImageView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:src="@drawable/email12"
+               android:paddingLeft="30dp"
+               />
+
+           <TextView
+               android:paddingLeft="15dp"
+               android:layout_gravity="center_vertical"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/anfisanesrin_gmail_com"
+               android:textSize="18dp"
+               />
+
+       </LinearLayout>
+
+   </LinearLayout>
+
+</LinearLayout>
+>>>>>>> origin/master

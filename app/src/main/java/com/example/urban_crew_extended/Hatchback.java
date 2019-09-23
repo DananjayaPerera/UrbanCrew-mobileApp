@@ -4,8 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+<<<<<<< HEAD
 import androidx.fragment.app.Fragment;
 import androidx.cardview.widget.CardView;
+=======
+import android.support.v4.app.Fragment;
+import android.support.v7.widget.CardView;
+>>>>>>> origin/master
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -69,6 +74,7 @@ public class Hatchback extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_hatchback, container, false);
 
+<<<<<<< HEAD
         CardView cardView1 = (CardView)view.findViewById(R.id.cardView_1);
         cardView1.setOnClickListener(new OnClickListener() {
             @Override
@@ -110,6 +116,27 @@ public class Hatchback extends Fragment {
             }
         });
 
+=======
+        /*CardView cardView = (CardView)view.findViewById(R.id.cardView_1);
+        cardView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), xcv.class);
+
+                startActivity(intent);
+
+            }
+        });
+
+        CardView cardView1 = (CardView)view.findViewById(R.id.cardView_2);
+        cardView1.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1 = new Intent(getActivity(),Demo12.class);
+                startActivity(intent1);
+            }
+        });*/
+>>>>>>> origin/master
         return view;
     }
 

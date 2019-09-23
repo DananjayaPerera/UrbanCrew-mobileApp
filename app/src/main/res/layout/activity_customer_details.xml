@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ConfirmRentalActivity"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="@color/cardview_dark_background">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/customer_details"
+        android:layout_marginTop="30dp"
+        android:textSize="@android:dimen/app_icon_size"
+        android:textColor="@android:color/holo_orange_light"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/existing_customer"
+        android:layout_marginTop="20dp"
+
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/email_address"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        android:textColorHint="@android:color/white"
+        android:background="@android:color/darker_gray"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/fetch_details"
+        android:textColor="@android:color/white"
+        android:background="@drawable/button5"
+        android:padding="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/full_name"
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/full_name"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        android:textColorHint="@android:color/white"
+        android:background="@android:color/darker_gray"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/address"
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/white"/>
+
+
+    <EditText
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/address"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        android:textColorHint="@android:color/white"
+        android:background="@android:color/darker_gray"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/city"
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/city"
+        android:layout_marginTop="10dp"
+        android:textColorHint="@android:color/white"
+        android:padding="5dp"
+        android:background="@android:color/darker_gray"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/telephone"
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/telephone"
+        android:layout_marginTop="10dp"
+        android:textColorHint="@android:color/white"
+        android:padding="5dp"
+        android:background="@android:color/darker_gray"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/confirm_button"
+        android:textColor="@android:color/white"
+        android:background="@drawable/button2"/>
+
+</LinearLayout>

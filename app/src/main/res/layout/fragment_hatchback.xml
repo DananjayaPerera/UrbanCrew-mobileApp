@@ -5,7 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Hatchback"
+<<<<<<< HEAD
     android:background="@drawable/background24">
+=======
+    android:background="@drawable/background10">
+>>>>>>> origin/master
 
     <!-- TODO: Update blank fragment layout -->
     <ScrollView
@@ -20,7 +24,11 @@
 
 
 
+<<<<<<< HEAD
         <androidx.cardview.widget.CardView
+=======
+        <android.support.v7.widget.CardView
+>>>>>>> origin/master
             android:id="@+id/cardView_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -45,6 +53,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+<<<<<<< HEAD
                             android:text="@string/maruti_suzuki"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="20sp"
@@ -56,12 +65,20 @@
                             android:text="@string/altok10"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="18sp"
+=======
+                            android:text="BMW"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="24dp"
+>>>>>>> origin/master
                             />
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+<<<<<<< HEAD
                             android:layout_marginTop="10dp"
+=======
+>>>>>>> origin/master
                             android:orientation="horizontal">
 
                             <ImageView
@@ -84,13 +101,21 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+<<<<<<< HEAD
                                 android:src="@drawable/star2"
+=======
+                                android:src="@drawable/star"
+>>>>>>> origin/master
                                 android:layout_marginLeft="2dp"/>
 
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+<<<<<<< HEAD
                                 android:src="@drawable/star2"
+=======
+                                android:src="@drawable/star"
+>>>>>>> origin/master
                                 android:layout_marginLeft="2dp"/>
 
                         </LinearLayout>
@@ -99,7 +124,11 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
+<<<<<<< HEAD
                             android:layout_marginTop="10dp">
+=======
+                            android:layout_marginTop="16dp">
+>>>>>>> origin/master
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
@@ -110,11 +139,24 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
+<<<<<<< HEAD
                                     android:textColor="@color/colorPrimaryDark"
                                     android:textSize="18sp"
                                     android:text="20"/>
 
 
+=======
+                                    android:textSize="20dp"
+                                    android:text="20"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:textSize="14dp"
+                                    android:text="BMW i8"
+                                    />
+>>>>>>> origin/master
 
                             </LinearLayout>
 
@@ -145,9 +187,15 @@
 
             </LinearLayout>
 
+<<<<<<< HEAD
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+=======
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+>>>>>>> origin/master
             android:id="@+id/cardView_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -173,6 +221,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+<<<<<<< HEAD
                             android:text="@string/maruti_suzuki"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="20sp"
@@ -184,12 +233,20 @@
                             android:text="@string/swift"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="18sp"
+=======
+                            android:text="BMW"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="24dp"
+>>>>>>> origin/master
                             />
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+<<<<<<< HEAD
                             android:layout_marginTop="10dp"
+=======
+>>>>>>> origin/master
                             android:orientation="horizontal">
 
                             <ImageView
@@ -227,7 +284,11 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
+<<<<<<< HEAD
                             android:layout_marginTop="10dp">
+=======
+                            android:layout_marginTop="16dp">
+>>>>>>> origin/master
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
@@ -238,10 +299,23 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
+<<<<<<< HEAD
                                     android:textColor="@color/colorPrimaryDark"
                                     android:textSize="18sp"
                                     android:text="20"/>
 
+=======
+                                    android:textSize="20dp"
+                                    android:text="20"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:textSize="14dp"
+                                    android:text="BMW i8"
+                                    />
+>>>>>>> origin/master
 
                             </LinearLayout>
 
@@ -258,7 +332,11 @@
                             android:layout_width="180dp"
                             android:layout_height="120dp"
                             android:layout_alignParentRight="true"
+<<<<<<< HEAD
                             android:src="@drawable/cardimage2"
+=======
+                            android:src="@drawable/cardimage1"
+>>>>>>> origin/master
                             android:scaleType="fitCenter"
                             app:riv_corner_radius="8dp"
                             app:riv_border_width="2dp"
@@ -272,10 +350,16 @@
 
             </LinearLayout>
 
+<<<<<<< HEAD
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView_3"
+=======
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+>>>>>>> origin/master
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -300,6 +384,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+<<<<<<< HEAD
                             android:text="@string/maruti_suzuki"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="20sp"
@@ -311,12 +396,20 @@
                             android:text="@string/celeriox"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="18sp"
+=======
+                            android:text="BMW"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="24dp"
+>>>>>>> origin/master
                             />
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+<<<<<<< HEAD
                             android:layout_marginTop="10dp"
+=======
+>>>>>>> origin/master
                             android:orientation="horizontal">
 
                             <ImageView
@@ -345,7 +438,11 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+<<<<<<< HEAD
                                 android:src="@drawable/star1"
+=======
+                                android:src="@drawable/star"
+>>>>>>> origin/master
                                 android:layout_marginLeft="2dp"/>
 
                         </LinearLayout>
@@ -354,7 +451,11 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
+<<<<<<< HEAD
                             android:layout_marginTop="10dp">
+=======
+                            android:layout_marginTop="16dp">
+>>>>>>> origin/master
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
@@ -365,10 +466,23 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
+<<<<<<< HEAD
                                     android:textColor="@color/colorPrimaryDark"
                                     android:textSize="18sp"
                                     android:text="20"/>
 
+=======
+                                    android:textSize="20dp"
+                                    android:text="20"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:textSize="14dp"
+                                    android:text="BMW i8"
+                                    />
+>>>>>>> origin/master
 
                             </LinearLayout>
 
@@ -385,7 +499,11 @@
                             android:layout_width="180dp"
                             android:layout_height="120dp"
                             android:layout_alignParentRight="true"
+<<<<<<< HEAD
                             android:src="@drawable/cardimage3"
+=======
+                            android:src="@drawable/cardimage1"
+>>>>>>> origin/master
                             android:scaleType="fitCenter"
                             app:riv_corner_radius="8dp"
                             app:riv_border_width="2dp"
@@ -399,6 +517,7 @@
 
             </LinearLayout>
 
+<<<<<<< HEAD
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -406,6 +525,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+=======
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+>>>>>>> origin/master
             app:cardCornerRadius="8dp">
 
             <LinearLayout
@@ -427,6 +554,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+<<<<<<< HEAD
                             android:text="@string/maruti_suzuki"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="20sp"
@@ -438,12 +566,20 @@
                             android:text="@string/wagon_r"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="18sp"
+=======
+                            android:text="BMW"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="24dp"
+>>>>>>> origin/master
                             />
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+<<<<<<< HEAD
                             android:layout_marginTop="10dp"
+=======
+>>>>>>> origin/master
                             android:orientation="horizontal">
 
                             <ImageView
@@ -481,7 +617,11 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
+<<<<<<< HEAD
                             android:layout_marginTop="10dp">
+=======
+                            android:layout_marginTop="16dp">
+>>>>>>> origin/master
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
@@ -492,10 +632,23 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
+<<<<<<< HEAD
                                     android:textColor="@color/colorPrimaryDark"
                                     android:textSize="18sp"
                                     android:text="20"/>
 
+=======
+                                    android:textSize="20dp"
+                                    android:text="20"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:textSize="14dp"
+                                    android:text="BMW i8"
+                                    />
+>>>>>>> origin/master
 
                             </LinearLayout>
 
@@ -512,7 +665,11 @@
                             android:layout_width="180dp"
                             android:layout_height="120dp"
                             android:layout_alignParentRight="true"
+<<<<<<< HEAD
                             android:src="@drawable/cardimage4"
+=======
+                            android:src="@drawable/cardimage1"
+>>>>>>> origin/master
                             android:scaleType="fitCenter"
                             app:riv_corner_radius="8dp"
                             app:riv_border_width="2dp"
@@ -526,9 +683,13 @@
 
             </LinearLayout>
 
+<<<<<<< HEAD
         </androidx.cardview.widget.CardView>
 
 
+=======
+        </android.support.v7.widget.CardView>
+>>>>>>> origin/master
 
     </LinearLayout>
 

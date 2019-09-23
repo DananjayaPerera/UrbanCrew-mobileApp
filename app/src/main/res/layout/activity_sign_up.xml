@@ -21,10 +21,16 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
+<<<<<<< HEAD
             android:layout_height="wrap_content"
             android:textSize="19sp"
             android:hint="@string/user_name"
             android:inputType="textPersonName" />
+=======
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="220dp">
+>>>>>>> origin/master
 
     </com.google.android.material.textfield.TextInputLayout>
 

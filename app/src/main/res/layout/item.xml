@@ -7,7 +7,11 @@
     android:layout_gravity="center_horizontal">
 
 
+<<<<<<< HEAD
     <androidx.cardview.widget.CardView
+=======
+    <android.support.v7.widget.CardView
+>>>>>>> origin/master
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="20dp"
@@ -42,6 +46,10 @@
 
         </RelativeLayout>
 
+<<<<<<< HEAD
     </androidx.cardview.widget.CardView>
+=======
+    </android.support.v7.widget.CardView>
+>>>>>>> origin/master
 
 </LinearLayout>
