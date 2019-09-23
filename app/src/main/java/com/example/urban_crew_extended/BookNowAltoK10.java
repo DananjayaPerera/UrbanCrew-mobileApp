@@ -75,6 +75,21 @@ public class BookNowAltoK10 extends AppCompatActivity{
                     Toast.makeText(BookNowAltoK10.this, "Field's can't be empty", Toast.LENGTH_LONG).show();
                     return;
                 }
+                YourLocation = userLocation_1.getText().toString();
+                PickUpLocation = userpickupLocation.getText().toString();
+                Date = editText_date.getText().toString();
+                Time = editText_time.getText().toString();
+
+                if (YourLocation.isEmpty() | PickUpLocation.isEmpty() | Date.isEmpty() | Time.isEmpty()){
+
+                    Toast.makeText(BookNowAltoK10.this, "Field's can't be empty", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                SendInput();
+                openSuccess();
+            }
+        });
 
                 SendInput();
                 Intent intent = new Intent(BookNowAltoK10.this, PaymentSelection.class);
@@ -83,6 +98,7 @@ public class BookNowAltoK10 extends AppCompatActivity{
         });
 
 
+        editText_date = findViewById(R.id.datePicker_alto);
         editText_date = findViewById(R.id.datePicker_alto);
         final Calendar calendar = Calendar.getInstance();
         editText_date.setOnClickListener(new OnClickListener() {
@@ -170,6 +186,83 @@ public class BookNowAltoK10 extends AppCompatActivity{
         });
     }
 
+
+
+
+
+        editText_time = findViewById(R.id.timePicker_alto);
+        editText_time.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                calendar_1 = Calendar.getInstance();
+                currentHour = calendar_1.get(Calendar.HOUR_OF_DAY);
+                currentMinute = calendar_1.get(Calendar.MINUTE);
+
+                timePickerDialog = new TimePickerDialog(BookNowAltoK10.this, new OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+
+                        if (hourOfDay >= 12){
+
+                            amPm = "PM";
+                        } else {
+
+                            amPm = "AM";
+                        }
+
+                        editText_time.setText(String.format("%02d:%02d", hourOfDay, minute) + amPm);
+    public void openSuccess(){
+
+        Intent intent = new Intent(this,Success.class);
+        startActivity(intent);
+    }
+
+
+                    }
+                },currentHour,currentMinute,false);
+    public void SendInput(){
+
+                timePickerDialog.show();
+            }
+        });
+
+        userLocation_1 = findViewById(R.id.alto_your_location);
+        userpickupLocation = findViewById(R.id.alto_pickup_location);
+        user = findViewById(R.id.username_bookAlto);
+        email = findViewById(R.id.email_bookAlto);
+        phone = findViewById(R.id.phone_bookAlto);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        YourLocation = userLocation_1.getText().toString();
+        PickUpLocation = userpickupLocation.getText().toString();
+        Date = editText_date.getText().toString();
+        Time = editText_time.getText().toString();
+
+        DatabaseReference databaseReference = firebaseDatabase.getReference(firebaseAuth.getUid()).child("User Info");
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                String UserName = dataSnapshot.child("UserName").getValue().toString();
+                String UserEmail = dataSnapshot.child("UserEmail").getValue().toString();
+                String UserPhone = dataSnapshot.child(("UserPhone")).getValue().toString();
+                user.setText(UserName);
+                email.setText(UserEmail);
+                phone.setText(UserPhone);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                Toast.makeText(BookNowAltoK10.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }
+
     public void SendInput(){
 
         YourLocation = userLocation_1.getText().toString();
@@ -177,6 +270,10 @@ public class BookNowAltoK10 extends AppCompatActivity{
         Date = editText_date.getText().toString();
         Time = editText_time.getText().toString();
 
+        DatabaseReference myref = firebaseDatabase.getReference(firebaseAuth.getUid()).child("AltoK10")
+                .child("Booking Information");
+        BookingProfile bookingProfile = new BookingProfile(YourLocation,PickUpLocation,Date,Time);
+        myref.setValue(bookingProfile);
         DatabaseReference myref = firebaseDatabase.getReference(firebaseAuth.getUid()).child("AltoK10")
                 .child("Booking Information");
         BookingProfile bookingProfile = new BookingProfile(YourLocation,PickUpLocation,Date,Time);
