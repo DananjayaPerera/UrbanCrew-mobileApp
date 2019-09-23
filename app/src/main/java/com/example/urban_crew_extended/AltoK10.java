@@ -39,19 +39,94 @@ public class AltoK10 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alto_k10);
 
+        Toolbar toolbar = findViewById(R.id.toolbar_altok10);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("AltoK10");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+        book_Price = findViewById(R.id.bookPrice_Alto);
+        food = findViewById(R.id.alto_food_check);
+        drink = findViewById(R.id.alto_drink_check);
+
+        altoExtraResult = new ArrayList<>();
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+
+        book_Price.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+                book_Option = book_Price.findViewById(checkedId);
+
+                switch (checkedId) {
+
+                    case R.id.alto_hour_check:
+                        String option_1 = "Hourly Rs 300.00 LKR";
+                        resultBook = option_1;
+                        break;
+
+
+                    case R.id.alto_day_check:
+                        String option_2 = "Daily Rs 6000.00 LKR";
+                        resultBook = option_2;
+                        break;
+
+                    default:
+                }
+
+            }
+        });
+
+
+        food.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (food.isChecked()){
+
+                    altoExtraResult.add("Foods Rs 2000.00 LKR");
+                } else {
+
+                    altoExtraResult.remove("Foods Rs 2000.00 LKR");
+                }
+            }
+        });
+
+        drink.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (drink.isChecked()){
+
+                    altoExtraResult.add("Drinks Rs 1000.00 LKR");
+                } else {
+
+                    altoExtraResult.remove("Drinks Rs 1000.00 LKR");
+                }
+            }
+        });
+
+
         button = (Button)findViewById(R.id.bookNow);
         button.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
 
+
+                if (resultBook == null){
+
+                    Toast.makeText(AltoK10.this, "Booking Price can't be empty", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                sendUserData();
                 openBookNowAltoK10();
             }
         });
 
-        Toolbar toolbar = findViewById(R.id.toolbar_altok10);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("AltoK10");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         int images [] = {R.drawable.alto, R.drawable.alto1, R.drawable.alto2,
                 R.drawable.alto3, R.drawable.alto4};
@@ -62,6 +137,31 @@ public class AltoK10 extends AppCompatActivity {
 
             flipperImages(image);
         }
+    }
+
+    public void sendUserData(){
+
+
+        DatabaseReference reference_1 = firebaseDatabase.getReference(firebaseAuth.getUid()).child("AltoK10")
+                .child("Booking Information").child("Booking Price");
+
+        reference_1.setValue(resultBook);
+
+
+        StringBuilder stringBuilderExtra = new StringBuilder();
+        for (String s: altoExtraResult){
+
+            stringBuilderExtra.append(s + ", ");
+            resultExtra = stringBuilderExtra.toString();
+            DatabaseReference reference_2 = firebaseDatabase.getReference(firebaseAuth.getUid()).child("AltoK10")
+                    .child("Booking Information").child("Rental Extra Options");
+            reference_2.setValue(resultExtra);
+        }
+
+        DatabaseReference reference_3 = firebaseDatabase.getReference(firebaseAuth.getUid()).child("AltoK10")
+                .child("Booking Information").child("Vehicle Name");
+        String name = "AltoK10";
+        reference_3.setValue(name);
     }
 
     public void openBookNowAltoK10(){

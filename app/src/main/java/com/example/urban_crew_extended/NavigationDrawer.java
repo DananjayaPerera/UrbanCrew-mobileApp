@@ -56,12 +56,8 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
     ViewPager viewPager;
     Adapter adapter;
     List<Model> models;
-
-
     DrawerLayout drawerLayout;
     NavigationView navigationView;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -180,9 +176,6 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
                 Toast.makeText(this,"Settings Clicked",Toast.LENGTH_SHORT).show();
                 break;
 
-            case R.id.delete_id:
-                Toast.makeText(this,"Delete Clicked",Toast.LENGTH_SHORT).show();
-                break;
 
             case android.R.id.home:
                 finish();
@@ -236,10 +229,10 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
         if(drawerLayout.isDrawerOpen(GravityCompat.START)){
 
             drawerLayout.closeDrawer(GravityCompat.START);
+
         }else {
 
             super.onBackPressed();
         }
-
     }
 }

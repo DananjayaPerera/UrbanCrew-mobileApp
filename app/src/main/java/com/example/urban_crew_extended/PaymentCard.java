@@ -54,7 +54,14 @@ public class PaymentCard extends AppCompatActivity {
 
         DatabaseReference AltoCard = firebaseDatabase.getReference(firebaseAuth.getUid()).child("AltoK10")
                 .child("Payment Options").child("Card Payment").child("Card Details");
+
+        DatabaseReference AltoCard2 = firebaseDatabase.getReference(firebaseAuth.getUid()).child("AltoK10")
+                .child("Booking Information").child("Payment");
+
         CardProfile cardProfile = new CardProfile(cardName,cardNumber,cardExpirationDate,cardCCV);
         AltoCard.setValue(cardProfile);
+
+        String card = "Card";
+        AltoCard2.setValue(card);
     }
 }

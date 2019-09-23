@@ -1,9 +1,12 @@
 package com.example.urban_crew_extended;
 
+import android.content.Context;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -57,6 +60,31 @@ public class MainActivity extends AppCompatActivity {
 
         start.setAnimation(frombottom);
         logo.setAnimation(fromtop);
+
+        checkConnection();
     }
 
+    public void checkConnection(){
+
+        ConnectivityManager manager = (ConnectivityManager)getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = manager.getActiveNetworkInfo();
+
+        if (null != activeNetwork){
+
+            if (activeNetwork.getType() == ConnectivityManager.TYPE_WIFI){
+
+                Toast.makeText(this, "Wifi Enabled", Toast.LENGTH_SHORT).show();
+            }
+
+            else  if (activeNetwork.getType() == ConnectivityManager.TYPE_MOBILE){
+
+                Toast.makeText(this, "Data Network Enabled", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+        else {
+
+            Toast.makeText(this, "Hmmm...No Internet Connection", Toast.LENGTH_SHORT).show();
+        }
+    }
 }

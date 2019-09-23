@@ -108,100 +108,9 @@ public class Profile extends AppCompatActivity {
 
             }
         });
-
-        profilePic.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent galleryIntent = new Intent();
-                galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
-                galleryIntent.setType("image/*");
-                startActivityForResult(galleryIntent, GalleryPick);
-            }
-        });
-
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == GalleryPick && resultCode == RESULT_OK && data != null){
-
-            Uri imageUri = data.getData();
-
-            CropImage.activity().setGuidelines(Guidelines.ON).setAspectRatio(1,1).start(Profile.this);
-        }
-
-        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE){
-
-            CropImage.ActivityResult result = CropImage.getActivityResult(data);
-
-            if (resultCode == RESULT_OK){
-
-                final Uri resultUri = result.getUri();
-
-                final StorageReference filePath = storageReference.child(currentUser + ".jpg");
-
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-
-                byte[] data1 = baos.toByteArray();
-
-                UploadTask uploadTask = storageReference.putBytes(data1);
-
-                uploadTask = filePath.putFile(resultUri);
-
-                Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<TaskSnapshot, Task<Uri>>() {
-                    @Override
-                    public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
-                        if (!task.isSuccessful()) {
-                            throw task.getException();
-                        }
-
-                        // Continue with the task to get the download URL
-                        return filePath.getDownloadUrl();
-
-                    }
-                }).addOnCompleteListener(new OnCompleteListener<Uri>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Uri> task) {
-
-                        if (task.isSuccessful()) {
-
-                            Picasso.get().load(resultUri).into(profilePic);
-                            Toast.makeText(Profile.this, "Profile Image Uploaded Successfully", Toast.LENGTH_SHORT).show();
-
-                        } else {
-
-                            // Handle failures
-                            // ...
-                        }
-                    }
-                });
-
-                /*filePath.putFile(resultUri).addOnCompleteListener(new OnCompleteListener<TaskSnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<TaskSnapshot> task) {
-
-
-                        if (task.isSuccessful()){
-
-                            Toast.makeText(Profile.this, "Profile Image Uploaded Successfully", Toast.LENGTH_SHORT).show();
-
-
-                        } else {
-
-                            String message = task.getException().toString();
-                            Toast.makeText(Profile.this, "Error :" +message, Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });*/
-
-            }
-        }
-    }
-
-    /*public void onChooseFile(View v){
+    public void onChooseFile(View v){
 
         CropImage.activity().start(Profile.this);
 
@@ -222,13 +131,17 @@ public class Profile extends AppCompatActivity {
                 profilePic.setImageURI(imageUri);
 
                 StorageReference myRef = storageReference.child(firebaseAuth.getUid()).child("Profile Image");
+                myRef.putFile(imageUri);
 
                 Toast.makeText(Profile.this, "Image uploaded successfully", Toast.LENGTH_SHORT).show();
 
             }
 
+            else if(resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE){
+
+                Exception e = result.getError();
+                Toast.makeText(this, "Error"+e, Toast.LENGTH_SHORT).show();
+            }
         }
-    }*/
-
-
+    }
 }

@@ -51,11 +51,16 @@ public class PaymentSelection extends AppCompatActivity {
 
     Button button_create_pdf;
     Button button_pay_later;
+    FirebaseAuth firebaseAuth;
+    FirebaseDatabase firebaseDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment_selection);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
 
         button_pay_later = findViewById(R.id.alto_card);
 
@@ -81,6 +86,7 @@ public class PaymentSelection extends AppCompatActivity {
                             public void onClick(View v) {
 
                                 createPDFFILE(Common.getAppPath(PaymentSelection.this)+"test_pdf.pdf");
+                                sendUserInput();
                             }
                         });
                     }
@@ -96,6 +102,15 @@ public class PaymentSelection extends AppCompatActivity {
                     }
                 })
                 .check();
+    }
+
+    private void sendUserInput() {
+
+        String payment = "Pay Later";
+        DatabaseReference databaseReference = firebaseDatabase.getReference(firebaseAuth.getUid()).child("AltoK10")
+                .child("Booking Information").child("Payment");
+        databaseReference.setValue(payment);
+
     }
 
     private void createPDFFILE(String path) {
