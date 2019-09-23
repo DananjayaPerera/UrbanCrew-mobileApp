@@ -5,6 +5,8 @@ import android.content.Intent;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -18,6 +20,11 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class SignIn extends AppCompatActivity {
 
@@ -27,6 +34,7 @@ public class SignIn extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private ProgressDialog progressDialog;
     private TextView passwordReset;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,16 +46,10 @@ public class SignIn extends AppCompatActivity {
         userPassword = findViewById(R.id.password_login_1);
         passwordReset = findViewById(R.id.sign_in_password_reset);
 
+
         firebaseAuth = FirebaseAuth.getInstance();
         progressDialog = new ProgressDialog(this);
 
-        FirebaseUser user = firebaseAuth.getCurrentUser();
-
-        if (user != null){
-
-            finish();
-            startActivity(new Intent(SignIn.this,NavigationDrawer.class));
-        }
 
         register = (Button)findViewById(R.id.register_1);
         log_in = (Button)findViewById(R.id.login_1);
@@ -64,8 +66,17 @@ public class SignIn extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                String email_1 = userEmail.getEditText().getText().toString();
+                String password_1 = userPassword.getEditText().getText().toString();
+
+                if (email_1.isEmpty() | password_1.isEmpty()) {
+
+                    return;
+                }
+
                 Validate(userEmail.getEditText().getText().toString(), userPassword.getEditText()
-                        .getText().toString());
+                            .getText().toString());
+
             }
         });
 
@@ -93,8 +104,9 @@ public class SignIn extends AppCompatActivity {
 
                 if (task.isSuccessful()){
 
+
                     progressDialog.dismiss();
-                    Toast.makeText(SignIn.this, "SignIn successful", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignIn.this, "Welcome To Urban Crew", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(SignIn.this,NavigationDrawer.class));
 
                 } else {
@@ -106,4 +118,5 @@ public class SignIn extends AppCompatActivity {
             }
         });
     }
+
 }

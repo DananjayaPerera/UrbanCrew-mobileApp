@@ -1,7 +1,6 @@
 package com.example.urban_crew_extended;
 
 import android.content.Context;
-<<<<<<< HEAD
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -10,13 +9,6 @@ import androidx.cardview.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-=======
-import android.net.Uri;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
->>>>>>> origin/master
 import android.view.ViewGroup;
 
 
@@ -75,7 +67,6 @@ public class SUV extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-<<<<<<< HEAD
         View view = inflater.inflate(R.layout.fragment_suv, container, false);
 
         CardView cardView9 = (CardView)view.findViewById(R.id.cardView_9);
@@ -123,9 +114,6 @@ public class SUV extends Fragment {
         });
 
         return view;
-=======
-        return inflater.inflate(R.layout.fragment_suv, container, false);
->>>>>>> origin/master
     }
 
     // TODO: Rename method, update argument and hook method into UI event

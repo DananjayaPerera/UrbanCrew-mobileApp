@@ -1,9 +1,22 @@
 package com.example.urban_crew_extended;
 
-<<<<<<< HEAD
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager.OnActivityResultListener;
+import android.provider.MediaStore;
+import android.provider.MediaStore.Images.Media;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,28 +28,24 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.theartofdev.edmodo.cropper.CropImage;
+
+import java.io.IOException;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Profile extends AppCompatActivity {
 
     private CircleImageView profilePic;
+    Uri imageUri;
     private TextView profile_userName, profile_userEmail, profile_userPhone;
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
 
-=======
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-
-public class Profile extends AppCompatActivity {
-
->>>>>>> origin/master
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-<<<<<<< HEAD
 
         Toolbar toolbar = findViewById(R.id.toolbar_profile);
         setSupportActionBar(toolbar);
@@ -47,6 +56,7 @@ public class Profile extends AppCompatActivity {
         profile_userName =  findViewById(R.id.profile_username_1);
         profile_userEmail = findViewById(R.id.profile_email_1);
         profile_userPhone = findViewById(R.id.profile_phone_1);
+
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
@@ -73,7 +83,35 @@ public class Profile extends AppCompatActivity {
 
             }
         });
-=======
->>>>>>> origin/master
     }
+
+
+    public void onChooseFile(View v){
+
+        CropImage.activity().start(Profile.this);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE){
+
+            CropImage.ActivityResult result = CropImage.getActivityResult(data);
+
+            if (resultCode == RESULT_OK){
+
+                imageUri = result.getUri();
+                profilePic.setImageURI(imageUri);
+            }
+
+            else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE){
+
+                Exception e = result.getError();
+                Toast.makeText(Profile.this, "Error :"+e, Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
 }

@@ -1,10 +1,6 @@
 package com.example.urban_crew_extended;
 
-<<<<<<< HEAD
 import androidx.appcompat.app.AppCompatActivity;
-=======
-import android.support.v7.app.AppCompatActivity;
->>>>>>> origin/master
 import android.os.Bundle;
 
 public class PaymentSelection extends AppCompatActivity {

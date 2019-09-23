@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+
+
 public class SignIn_SignUp extends AppCompatActivity {
 
     Button sign_in;
@@ -19,6 +21,7 @@ public class SignIn_SignUp extends AppCompatActivity {
 
         sign_in = (Button)findViewById(R.id.sign_in);
         sign_up = (Button)findViewById(R.id.sign_up_1);
+
 
         sign_in.setOnClickListener(new OnClickListener() {
             @Override

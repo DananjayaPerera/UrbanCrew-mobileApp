@@ -1,7 +1,6 @@
 package com.example.urban_crew_extended;
 
 import android.net.Uri;
-<<<<<<< HEAD
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener;
 import com.google.android.material.tabs.TabLayout.Tab;
@@ -10,16 +9,6 @@ import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;
-=======
-import android.support.design.widget.TabLayout;
-import android.support.design.widget.TabLayout.OnTabSelectedListener;
-import android.support.design.widget.TabLayout.Tab;
-import android.support.design.widget.TabLayout.TabLayoutOnPageChangeListener;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
->>>>>>> origin/master
 
 
 public class ViewCars extends AppCompatActivity implements Hatchback.OnFragmentInteractionListener, Sedan.OnFragmentInteractionListener, SUV.OnFragmentInteractionListener{
@@ -29,14 +18,11 @@ public class ViewCars extends AppCompatActivity implements Hatchback.OnFragmentI
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_cars);
 
-<<<<<<< HEAD
         Toolbar toolbar = findViewById(R.id.toolbar1);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("View Cars");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-=======
->>>>>>> origin/master
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tablayout);
         tabLayout.addTab(tabLayout.newTab().setText("Hatchback"));
         tabLayout.addTab(tabLayout.newTab().setText("Sedan"));

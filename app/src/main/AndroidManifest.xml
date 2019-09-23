@@ -9,8 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-<<<<<<< HEAD
-        <activity android:name=".PasswordReset"></activity>
+        <activity
+            android:name=".Search"
+            android:parentActivityName=".NavigationDrawer"/>
+        <activity android:name=".PasswordReset" />
         <activity
             android:name=".BookNowEvoque"
             android:parentActivityName=".Evoque" />
@@ -88,15 +90,11 @@
             android:name=".ViewCars"
             android:parentActivityName=".NavigationDrawer" />
         <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity
             android:name=".Profile"
             android:parentActivityName=".NavigationDrawer" />
-=======
-<<<<<<< HEAD
-=======
-        <activity android:name=".ViewCars" />
-        <activity android:name=".Profile" />
->>>>>>> View cars updated
->>>>>>> origin/master
         <activity android:name=".PaymentSelection" />
         <activity android:name=".PaymentCard" />
         <activity android:name=".SignUp" />
@@ -113,5 +111,9 @@
             </intent-filter>
         </activity>
     </application>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
